@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 3 - Form</title>
+        <link rel="stylesheet" href="estilo.css" />
+    </head>
+    <body>
+        <div id="container">
+            <form id="enviarForm">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required />
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail" required />
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-00000" />
+
+                <label for="assunto">Assunto</label>
+                <select id="assunto">
+                    <option disabled selected>Selecione...</option>
+                    <option>Abrir um chamado</option>
+                    <option>Emissão de 2ª via</option>
+                    <option>Ouvidoria</option>
+                </select>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem"></textarea>
+
+                <button type="submit"><span>Enviar</span></button>
+            </form>
+        </div>
+
+        <script>
+            enviarForm.onsubmit = function () {
+                event.preventDefault();
+                window.location.href = `https://api.whatsapp.com/send?phone=5585981527042&text=Olá, me chamo ${nome.value}, meu e-mail é ${email.value}, meu telefone é ${telefone.value}, gostaria de falar sobre ${assunto.value}. Mensagem: ${mensagem.value}`;
+            };
+        </script>
+    </body>
+</html>
